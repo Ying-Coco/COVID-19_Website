@@ -51,7 +51,7 @@ const Chart = ({data:{confirmed, recovered, deaths}, country}) => {
       }} options={{
         legend: {display: false},
         // eslint-disable-next-line no-template-curly-in-string
-        title: {display: true, text:'Current State in ${country}'},
+        title: {display: true, text:'Current State in' + country},
       }}
       />
     ): null
