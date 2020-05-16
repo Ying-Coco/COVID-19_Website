@@ -1,0 +1,10 @@
+List of npm installs 
+
+npm i react
+npm install --save axios react-chartjs-2 react-countup classnames
+npm install --save @material-ui/core
+npm install --save chart.js
+npm install react-router-dom
+npm install swr
+npm install country-code-lookup
+npm install react-mapbox-gl mapbox-gl --save

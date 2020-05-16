@@ -1,45 +1,23 @@
-import React from 'react';
+import React from "react";
+import "./App.module.css";
+import Nav from "./Nav";
+import MapBox from "./components/Map/Map";
+import Tracker from "./components/Tracker";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import {Cards, Chart, CountryPicker} from './component';
-import styles from './app.module.css';
-import {fetchData} from './api';
-
-
-class App extends React.Component{
-    state = {
-        data : {},
-        country: '',
-
-    }
-    async componentDidMount() {
-        const fetchedData = await fetchData();
-    
-        this.setState({ data: fetchedData });
-      }
-    
-    handleCountryChange = async (country) => {
-        const fetchedData = await fetchData(country);
-
-        this.setState({data: fetchedData, country: country});
-        
-        //set the this.state
-    }
-
-
-    render(){
-        const {data, country} = this.state;
-
-        return (
-            <div className={styles.container}>
-                <h1>Coronavirus Tracker</h1>
-                <h3>A site built to track the spread of the Coronavirus</h3>
-                <Cards data={data}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange}/>
-                <Chart data={data} country={country}/>
-            </div>
-        )
-    }
-
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+        <Route exact path="/Map" component={MapBox} />
+        <Route exact path="/" component={Tracker}/>
+        <Route exact path="/Tracker" component={Tracker}></Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
